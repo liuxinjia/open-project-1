@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SpawnSystem : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class SpawnSystem : MonoBehaviour
 	[SerializeField] private CameraManager _cameraManager;
 	[SerializeField] private Transform[] _spawnLocations;
 
-	void Awake()
+	void Start()
 	{
 		try
 		{
@@ -33,6 +31,9 @@ public class SpawnSystem : MonoBehaviour
 		AutoFill();
 	}
 
+	/// <summary>
+	/// This function tries to autofill some of the parameters of the component, so it's easy to drop in a new scene
+	/// </summary>
 	[ContextMenu("Attempt Auto Fill")]
 	private void AutoFill()
 	{
